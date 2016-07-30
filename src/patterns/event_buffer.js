@@ -43,14 +43,14 @@ var evt_buffer = (function() {
 
     // Only one event after "$delay" time is over
     var fn_deferred = function() {
-      if(set.timer) {
-        clearTimeout(set.timer);
-        set.timer = null;
+      if(timer) {
+        clearTimeout(timer);
+        timer = null;
       }
 
       var args = arguments;
       var context = this;
-      set.timer = setTimeout(function() {
+      timer = setTimeout(function() {
         fn.apply(context, args);
       }, delay);
     };
